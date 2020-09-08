@@ -1,4 +1,4 @@
-package aplicacion_taller2;
+
 
 
 import com.sun.awt.AWTUtilities;
