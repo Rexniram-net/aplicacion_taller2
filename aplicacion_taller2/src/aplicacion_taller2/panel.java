@@ -1,7 +1,4 @@
 
-
-package taller.dos;
-
 import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -401,8 +398,18 @@ public void Select5() {
         paneluno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         listauno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        listauno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaunoActionPerformed(evt);
+            }
+        });
 
         listados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        listados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listadosActionPerformed(evt);
+            }
+        });
 
         listatres.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         listatres.addActionListener(new java.awt.event.ActionListener() {
@@ -412,8 +419,18 @@ public void Select5() {
         });
 
         multiplica.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        multiplica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                multiplicaActionPerformed(evt);
+            }
+        });
 
         tolerencias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tolerencias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tolerenciasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelunoLayout = new javax.swing.GroupLayout(paneluno);
         paneluno.setLayout(panelunoLayout);
@@ -491,8 +508,18 @@ public void Select5() {
         jLabel3.setText("seleccione # bandas");
 
         bandas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        bandas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bandasActionPerformed(evt);
+            }
+        });
 
         salir.setText("x");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -576,9 +603,33 @@ public void Select5() {
     }//GEN-LAST:event_colorunoActionPerformed
 
     private void listatresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listatresActionPerformed
-        // TODO add your handling code here:
+        resultado.setText("" + calc());   //muestra en vacio o datos de la lista tres de seleecion de color
     }//GEN-LAST:event_listatresActionPerformed
 
+    private void listaunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaunoActionPerformed
+      resultado.setText("" + calc());   //muestra en vacio o datos de la lista uno de seleecion de color
+    }//GEN-LAST:event_listaunoActionPerformed
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        System.exit(0);  //sale de la app
+    }//GEN-LAST:event_salirActionPerformed
+
+    private void listadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listadosActionPerformed
+        resultado.setText("" + calc());   //muestra en vacio o datos de la lista dos de seleecion de color
+    }//GEN-LAST:event_listadosActionPerformed
+
+    private void multiplicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplicaActionPerformed
+        resultado.setText("" + calc());  //muestra en vacio o datos del  multiplicador de colores
+    }//GEN-LAST:event_multiplicaActionPerformed
+
+    private void tolerenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolerenciasActionPerformed
+        Select5();
+    }//GEN-LAST:event_tolerenciasActionPerformed
+
+    private void bandasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bandasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bandasActionPerformed
+                   
     /**
      * @param args the command line arguments
      */
