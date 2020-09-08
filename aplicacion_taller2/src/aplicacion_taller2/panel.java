@@ -1,3 +1,5 @@
+package aplicacion_taller2;
+
 
 import com.sun.awt.AWTUtilities;
 import java.awt.Color;
@@ -378,6 +380,7 @@ public void Select5() {
         paneldos = new javax.swing.JPanel();
         resultado = new javax.swing.JLabel();
         unidades = new javax.swing.JComboBox<>();
+        tole = new javax.swing.JLabel();
         coloruno = new javax.swing.JButton();
         colortres = new javax.swing.JButton();
         colordos = new javax.swing.JButton();
@@ -477,19 +480,22 @@ public void Select5() {
             .addGroup(paneldosLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(tole, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(unidades, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
         paneldosLayout.setVerticalGroup(
             paneldosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneldosLayout.createSequentialGroup()
+            .addGroup(paneldosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(paneldosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(paneldosLayout.createSequentialGroup()
+                .addGroup(paneldosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(resultado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneldosLayout.createSequentialGroup()
                         .addGap(0, 15, Short.MAX_VALUE)
                         .addComponent(unidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(resultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(tole, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -504,6 +510,11 @@ public void Select5() {
         jLabel2.setText("lectura");
 
         reset.setText("resetear");
+        reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("seleccione # bandas");
 
@@ -623,16 +634,260 @@ public void Select5() {
     }//GEN-LAST:event_multiplicaActionPerformed
 
     private void tolerenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolerenciasActionPerformed
-        Select5();
+        Select5();   //muestra el contenido de la seleccion 5
     }//GEN-LAST:event_tolerenciasActionPerformed
 
     private void bandasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bandasActionPerformed
-        // TODO add your handling code here:
+
+            
+            
+        
     }//GEN-LAST:event_bandasActionPerformed
-                   
-    /**
-     * @param args the command line arguments
-     */
+
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+           listauno.setSelectedItem("Ninguno");
+           listados.setSelectedItem("Ninguno");
+           listatres.setSelectedItem("Ninguno");
+           multiplica.setSelectedItem("Ninguno");
+           tolerencias.setSelectedItem("Ninguno");
+       
+        tole.setText("");
+        resultado.setText("");
+        coloruno.setBackground(reset_color());
+        colordos.setBackground(reset_color());
+        colortres.setBackground(reset_color());
+        multiplicador.setBackground(reset_color());
+        tolerancia.setBackground(reset_color());
+    }//GEN-LAST:event_resetActionPerformed
+        
+    public void total_resis(int total){
+    
+    if (total == 4) {
+            listauno.setVisible(true);
+            multiplica.setVisible(true);
+            tolerencias.setVisible(true);
+            listatres.setVisible(false);
+            colortres.setVisible(false);
+
+            listados.setVisible(true);
+            coloruno.setVisible(true);
+            colordos.setVisible(true);
+            multiplicador.setVisible(true);
+            tolerancia.setVisible(true);
+
+            // tolerancia(total);
+        }
+        if (total == 5) {
+            listauno.setVisible(true);
+            multiplica.setVisible(true);
+            tolerencias.setVisible(true);
+            listados.setVisible(true);
+            listatres.setVisible(true);
+            colortres.setVisible(true);
+
+        }
+
+    }
+    
+    
+    public float convertidor() {
+        int or = unidades.getSelectedIndex();
+        float val = 0;
+        switch (or) {
+            case 0:
+                val = calc();
+                break;
+            case 1:
+                val = (float) (calc() * 0.001);
+                break;
+            case 2:
+                val = (float) (calc() * 0.000001);
+                break;
+            case 3:
+                val = (float) (calc() * 0.000000001);
+                break;
+            case 4:
+                val = (float) (calc() * 1000);
+                break;
+            case 5:
+                val = (float) (calc() * 1000000);
+                break;
+            case 6:
+                val = (float) (calc() * 1000000000);
+                break;
+        }
+        return val;
+    }
+    
+    
+     public void divide_ca(String cadena) {
+        int r = (int) (Double.parseDouble(cadena)); //convierte a entero la cadena
+        String copia = String.valueOf(r); //convierte String del entero convertido
+
+        int resultado = 0;
+        //String color3 = "negro";
+        if (copia.length() == 1) {
+            resultado = r;
+            //here
+            multiplica.setSelectedItem("Negro");
+            multiplicador.setBackground(Color.BLACK);
+          //selecciona los colores en lo cual multipca por cantidad de ceros
+        } else {
+            if (copia.length() == 2) {
+                resultado = r;
+                multiplicador.setBackground(Color.BLACK);
+                //here
+                multiplica.setSelectedItem("Negro");
+            } else if (copia.length() == 3) {
+                resultado = r / 10;
+                multiplicador.setBackground(cafe());
+                multiplica.setSelectedItem("Cafe");
+
+            } else if (copia.length() == 4) {
+                resultado = r / 100;
+                multiplicador.setBackground(Color.RED);
+                multiplica.setSelectedItem("Rojo");
+            } else if (copia.length() == 5) {
+                resultado = r / 1000;
+                multiplicador.setBackground(Color.ORANGE);
+                multiplica.setSelectedItem("Naranja");
+            } else if (copia.length() == 6) {
+                resultado = r / 10000;
+                multiplicador.setBackground(Color.YELLOW);
+                multiplica.setSelectedItem("Amarillo");
+            } else if (copia.length() == 7) {
+                resultado = r / 100000;
+                multiplicador.setBackground(Color.GREEN);
+                multiplica.setSelectedItem("Verde");
+            } else if (copia.length() == 8) {
+                resultado = r / 100000;
+                multiplicador.setBackground(Color.BLUE);
+                multiplica.setSelectedItem("Azul");
+            } else if (copia.length() == 9) {
+                resultado = r / 10000000;
+                multiplicador.setBackground(violeta());
+                multiplica.setSelectedItem("Violeta");
+            }
+        }
+     //System.out.println("resul: " + resultado);
+        String copi = String.valueOf(resultado);
+        int[] enteros = new int[copi.length()];
+
+        String cad = "";
+
+        for (int j = 0; j < copi.length(); j++) {
+            cad = String.valueOf(copi.charAt(j));
+
+            enteros[j] = Integer.parseInt(cad);
+            
+            }
+         //asigna los colores con los numeros de la segunda lista
+        if (enteros.length < 2) {
+            if (enteros[0] == 0) {
+                colordos.setBackground(Color.BLACK);
+                //here
+                listados.setSelectedItem("Negro");
+            } else if (enteros[0] == 1) {
+                colordos.setBackground(cafe());
+                listados.setSelectedItem("Cafe");
+            } else if (enteros[0] == 2) {
+                colordos.setBackground(Color.RED);
+                listados.setSelectedItem("Rojo");
+            } else if (enteros[0] == 3) {
+                colordos.setBackground(Color.ORANGE);
+                listados.setSelectedItem("Naranja");
+            } else if (enteros[0] == 4) {
+                colordos.setBackground(Color.YELLOW);
+                listados.setSelectedItem("Amarillo");
+            } else if (enteros[0] == 5) {
+                colordos.setBackground(Color.GREEN);
+                listados.setSelectedItem("Verde");
+            } else if (enteros[0] == 6) {
+                colordos.setBackground(Color.BLUE);
+                listados.setSelectedItem("Azul");
+            } else if (enteros[0] == 7) {
+                colordos.setBackground(violeta());
+                listados.setSelectedItem("Violeta");
+            } else if (enteros[0] == 8) {
+                colordos.setBackground(Color.GRAY);
+                listados.setSelectedItem("Gris");
+            } else if (enteros[0] == 9) {
+                colordos.setBackground(Color.WHITE);
+                listados.setSelectedItem("Blanco");
+            }
+            
+            //System.out.println(color2 + "  " + color + "  " + color3);
+        } else {
+             //asigna los colores con los numeros de la primera lista
+            if (enteros[0] == 0) {
+                coloruno.setBackground(Color.BLACK);
+                //here
+                listauno.setSelectedItem("Negro");
+            } else if (enteros[0] == 1) {
+                listauno.setSelectedItem("Cafe");
+                coloruno.setBackground(cafe());
+            } else if (enteros[0] == 2) {
+                coloruno.setBackground(Color.RED);
+                listauno.setSelectedItem("Rojo");
+            } else if (enteros[0] == 3) {
+                coloruno.setBackground(Color.ORANGE);
+                listauno.setSelectedItem("Naranja");
+            } else if (enteros[0] == 4) {
+                coloruno.setBackground(Color.YELLOW);
+                listauno.setSelectedItem("Amarillo");
+            } else if (enteros[0] == 5) {
+                coloruno.setBackground(Color.GREEN);
+                listauno.setSelectedItem("Verde");
+            } else if (enteros[0] == 6) {
+                coloruno.setBackground(Color.BLUE);
+                listauno.setSelectedItem("Azul");
+            } else if (enteros[0] == 7) {
+                coloruno.setBackground(violeta());
+                listauno.setSelectedItem("Violeta");
+            } else if (enteros[0] == 8) {
+                coloruno.setBackground(Color.GRAY);
+                listauno.setSelectedItem("Gris");
+            } else if (enteros[0] == 9) {
+                coloruno.setBackground(Color.WHITE);
+                listauno.setSelectedItem("Blanco");
+            }
+            
+            if (enteros[1] == 0) {
+                colordos.setBackground(Color.BLACK);
+                //here
+                listados.setSelectedItem("Negro");
+            } else if (enteros[1] == 1) {
+                colordos.setBackground(cafe());
+                listados.setSelectedItem("Cafe");
+            } else if (enteros[1] == 2) {
+                colordos.setBackground(Color.RED);
+                listados.setSelectedItem("Rojo");
+            } else if (enteros[1] == 3) {
+                colordos.setBackground(Color.ORANGE);
+                listados.setSelectedItem("Naranja");
+            } else if (enteros[1] == 4) {
+                colordos.setBackground(Color.YELLOW);
+                listados.setSelectedItem("Amarillo");
+            } else if (enteros[1] == 5) {
+                colordos.setBackground(Color.GREEN);
+                listados.setSelectedItem("Verde");
+            } else if (enteros[1] == 6) {
+                colordos.setBackground(Color.BLUE);
+                listados.setSelectedItem("Azul");
+            } else if (enteros[1] == 7) {
+                colordos.setBackground(violeta());
+                listados.setSelectedItem("Violeta");
+            } else if (enteros[1] == 8) {
+                colordos.setBackground(Color.GRAY);
+                listados.setSelectedItem("Gris");
+            } else if (enteros[1] == 9) {
+                colordos.setBackground(Color.WHITE);
+                listados.setSelectedItem("Blanco");
+            }
+            //System.out.println(color + "  " + color2 + "  " + color3);
+        }
+    }
+     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -683,6 +938,7 @@ public void Select5() {
     private javax.swing.JButton reset;
     private javax.swing.JLabel resultado;
     private javax.swing.JButton salir;
+    private javax.swing.JLabel tole;
     private javax.swing.JButton tolerancia;
     private javax.swing.JComboBox<String> tolerencias;
     private javax.swing.JComboBox<String> unidades;
