@@ -26,21 +26,52 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        matrices = new javax.swing.JButton();
+        juego = new javax.swing.JButton();
+        resistencia = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(102, 204, 255));
+        setBackground(new java.awt.Color(102, 102, 102));
+        setForeground(new java.awt.Color(153, 0, 0));
 
-        jButton1.setText("jButton1");
+        matrices.setBackground(new java.awt.Color(255, 0, 51));
+        matrices.setText("CAL MATRICES ");
+        matrices.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                matricesMouseClicked(evt);
+            }
+        });
+        matrices.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                matricesActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("jButton2");
+        juego.setBackground(new java.awt.Color(255, 0, 51));
+        juego.setForeground(new java.awt.Color(0, 204, 255));
+        juego.setText("JUEGO P.P.T");
 
-        jButton3.setText("jButton3");
+        resistencia.setBackground(new java.awt.Color(255, 0, 51));
+        resistencia.setText("RESISTENCIAS");
+        resistencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resistenciaActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setBackground(new java.awt.Color(204, 0, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("APLICACIONES TALLER DOS");
+
+        jButton4.setForeground(new java.awt.Color(255, 0, 51));
+        jButton4.setText("SALIR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -48,32 +79,56 @@ public class Menu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jButton1)
-                .addGap(43, 43, 43)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(55, 55, 55))
+                .addComponent(matrices)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(juego, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(resistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
             .addGroup(layout.createSequentialGroup()
-                .addGap(95, 95, 95)
+                .addGap(111, 111, 111)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(matrices, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(juego, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(132, 132, 132))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void matricesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_matricesMouseClicked
+       
+    }//GEN-LAST:event_matricesMouseClicked
+
+    private void matricesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matricesActionPerformed
+         OperacionesMatrices operacionesMatrices= new OperacionesMatrices();
+       operacionesMatrices.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_matricesActionPerformed
+
+    private void resistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resistenciaActionPerformed
+       Resistencia resistencia  = new Resistencia();
+       resistencia.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_resistenciaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,9 +166,10 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton juego;
+    private javax.swing.JButton matrices;
+    private javax.swing.JButton resistencia;
     // End of variables declaration//GEN-END:variables
 }

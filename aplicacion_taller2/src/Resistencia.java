@@ -397,6 +397,7 @@ public class Resistencia extends javax.swing.JFrame {
         color1 = new javax.swing.JButton();
         Cerrar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
@@ -543,6 +544,15 @@ public class Resistencia extends javax.swing.JFrame {
         Cerrar.setBounds(630, 30, 47, 31);
 
         jPanel1.setBackground(new java.awt.Color(255, 0, 51));
+
+        jButton1.setText("Menu");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 710, 480);
 
@@ -620,6 +630,12 @@ public class Resistencia extends javax.swing.JFrame {
     private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CerrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       Menu menu = new Menu();
+       menu.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     public void total_resis(int total) {
@@ -894,6 +910,7 @@ public class Resistencia extends javax.swing.JFrame {
     private javax.swing.JButton color1;
     private javax.swing.JButton color2;
     private javax.swing.JButton color3;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton multiplicadorb;
