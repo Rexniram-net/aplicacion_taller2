@@ -1,5 +1,5 @@
 
-import com.sun.awt.AWTUtilities;
+
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -15,7 +15,7 @@ public class Resistencia extends javax.swing.JFrame {
     public Resistencia() {
         initComponents();
         setSize(700, 500);
-        AWTUtilities.setWindowOpaque(this, false);
+       
         setLocationRelativeTo(this);
         List1.setVisible(false);
         List2.setVisible(false);
@@ -40,9 +40,9 @@ public class Resistencia extends javax.swing.JFrame {
         multiplicativo.setBackground(oro());
         tolerancia.setBackground(oro());
 
-        p1.setBackground(Color.CYAN);
+        //p1.setBackground(Color.CYAN);
       
-        p3.setBackground(Color.cyan);
+        //p3.setBackground(Color.cyan);
         Cerrar.setBackground(Color.RED);
         bandas.setBackground(Color.green);
         Reset.setBackground(oro());
@@ -371,6 +371,7 @@ public class Resistencia extends javax.swing.JFrame {
         }
 
     }
+    
    
 
     @SuppressWarnings("unchecked")
@@ -378,11 +379,11 @@ public class Resistencia extends javax.swing.JFrame {
     private void initComponents() {
 
         Reset = new javax.swing.JButton();
-        color2 = new javax.swing.JButton();
         p3 = new javax.swing.JPanel();
-        Resultado = new javax.swing.JLabel();
         unidad = new javax.swing.JComboBox();
+        Resultado = new javax.swing.JLabel();
         tole = new javax.swing.JLabel();
+        color2 = new javax.swing.JButton();
         p1 = new javax.swing.JPanel();
         List1 = new javax.swing.JComboBox();
         List2 = new javax.swing.JComboBox();
@@ -396,8 +397,14 @@ public class Resistencia extends javax.swing.JFrame {
         color3 = new javax.swing.JButton();
         color1 = new javax.swing.JButton();
         Cerrar = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
@@ -412,14 +419,11 @@ public class Resistencia extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Reset);
-        Reset.setBounds(530, 340, 77, 23);
-        getContentPane().add(color2);
-        color2.setBounds(240, 290, 40, 130);
+        Reset.setBounds(300, 440, 77, 23);
 
-        p3.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultados"));
+        p3.setBackground(new java.awt.Color(0, 51, 153));
+        p3.setBorder(new javax.swing.border.MatteBorder(null));
         p3.setLayout(null);
-        p3.add(Resultado);
-        Resultado.setBounds(10, 20, 110, 20);
 
         unidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ohm Ω", "KΩ", "MΩ", "GΩ", "MiliΩ", "MicroΩ", "NanoΩ" }));
         unidad.setToolTipText("");
@@ -429,14 +433,28 @@ public class Resistencia extends javax.swing.JFrame {
             }
         });
         p3.add(unidad);
-        unidad.setBounds(180, 20, 80, 20);
+        unidad.setBounds(200, 20, 80, 20);
+
+        Resultado.setBackground(new java.awt.Color(255, 255, 255));
+        Resultado.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Resultado.setForeground(new java.awt.Color(0, 153, 153));
+        Resultado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51)));
+        p3.add(Resultado);
+        Resultado.setBounds(10, 10, 110, 30);
+
+        tole.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         p3.add(tole);
-        tole.setBounds(110, 20, 60, 16);
+        tole.setBounds(130, 20, 60, 16);
 
         getContentPane().add(p3);
-        p3.setBounds(200, 210, 270, 50);
+        p3.setBounds(190, 210, 290, 50);
 
-        p1.setBorder(javax.swing.BorderFactory.createTitledBorder("De colores a valores"));
+        color2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(color2);
+        color2.setBounds(240, 290, 40, 130);
+
+        p1.setBackground(new java.awt.Color(0, 51, 51));
+        p1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 51)));
         p1.setLayout(null);
 
         List1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguno", "Negro", "Cafe", "Rojo", "Naranja", "Amarillo", "Verde", "Azul", "Violeta", "Gris", "Blanco" }));
@@ -491,7 +509,7 @@ public class Resistencia extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Indique # bandas:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(230, 40, 140, 14);
+        jLabel1.setBounds(210, 30, 90, 14);
 
         bandas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "4", "5" }));
         bandas.addActionListener(new java.awt.event.ActionListener() {
@@ -500,8 +518,9 @@ public class Resistencia extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bandas);
-        bandas.setBounds(380, 40, 50, 20);
+        bandas.setBounds(320, 30, 50, 20);
 
+        toleranciab.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         toleranciab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 toleranciabActionPerformed(evt);
@@ -509,9 +528,12 @@ public class Resistencia extends javax.swing.JFrame {
         });
         getContentPane().add(toleranciab);
         toleranciab.setBounds(440, 290, 40, 130);
+
+        multiplicadorb.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(multiplicadorb);
         multiplicadorb.setBounds(390, 290, 40, 130);
 
+        color3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         color3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 color3ActionPerformed(evt);
@@ -520,6 +542,7 @@ public class Resistencia extends javax.swing.JFrame {
         getContentPane().add(color3);
         color3.setBounds(290, 290, 40, 130);
 
+        color1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         color1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 color1ActionPerformed(evt);
@@ -543,18 +566,42 @@ public class Resistencia extends javax.swing.JFrame {
         getContentPane().add(Cerrar);
         Cerrar.setBounds(630, 30, 47, 31);
 
-        jPanel1.setBackground(new java.awt.Color(255, 0, 51));
-
         jButton1.setText("Menu");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
+        getContentPane().add(jButton1);
+        jButton1.setBounds(570, 30, 59, 30);
 
+        jLabel2.setText("resultados");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(190, 190, 60, 14);
+
+        jLabel3.setText("seleccion de colores");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(20, 50, 130, 14);
+
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 710, 480);
+        jPanel1.setBounds(180, 280, 310, 150);
+
+        jPanel2.setBackground(new java.awt.Color(120, 91, 91));
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(120, 350, 60, 20);
+
+        jPanel3.setBackground(new java.awt.Color(120, 91, 91));
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(490, 340, 60, 20);
+
+        jPanel4.setBackground(new java.awt.Color(116, 82, 82));
+        getContentPane().add(jPanel4);
+        jPanel4.setBounds(550, 340, 20, 70);
+
+        jPanel5.setBackground(new java.awt.Color(116, 82, 82));
+        getContentPane().add(jPanel5);
+        jPanel5.setBounds(100, 350, 20, 70);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -591,7 +638,15 @@ public class Resistencia extends javax.swing.JFrame {
     }//GEN-LAST:event_toleranciaActionPerformed
 
     private void bandasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bandasActionPerformed
-      
+int total = Integer.parseInt(bandas.getSelectedItem().toString());
+        total_resis(total);
+        if (total == 5) {
+            {
+            p1.setEnabled(true);
+            List3.setEnabled(true);
+            color3.setEnabled(true);
+        } 
+        }     
     }//GEN-LAST:event_bandasActionPerformed
 
     private void unidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadActionPerformed
@@ -912,7 +967,13 @@ public class Resistencia extends javax.swing.JFrame {
     private javax.swing.JButton color3;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JButton multiplicadorb;
     private javax.swing.JComboBox multiplicativo;
     private javax.swing.JPanel p1;

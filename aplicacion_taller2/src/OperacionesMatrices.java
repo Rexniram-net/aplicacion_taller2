@@ -15,7 +15,9 @@ DefaultTableModel modelo3=new DefaultTableModel();
 
     public OperacionesMatrices() {
         initComponents();
-        
+        setSize(680, 530);
+       
+        setLocationRelativeTo(this);
     }
 
     @SuppressWarnings("unchecked")

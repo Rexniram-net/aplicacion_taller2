@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+import java.awt.Color;
 /**
  *
  * @author rex
@@ -15,6 +10,11 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        setSize(450, 300);
+       
+        setLocationRelativeTo(this);
+        
+        cerrar.setBackground(Color.RED);
     }
 
     /**
@@ -30,7 +30,9 @@ public class Menu extends javax.swing.JFrame {
         juego = new javax.swing.JButton();
         resistencia = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        cerrar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
@@ -52,6 +54,11 @@ public class Menu extends javax.swing.JFrame {
         juego.setBackground(new java.awt.Color(255, 0, 51));
         juego.setForeground(new java.awt.Color(0, 204, 255));
         juego.setText("JUEGO P.P.T");
+        juego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                juegoActionPerformed(evt);
+            }
+        });
 
         resistencia.setBackground(new java.awt.Color(255, 0, 51));
         resistencia.setText("RESISTENCIAS");
@@ -62,21 +69,35 @@ public class Menu extends javax.swing.JFrame {
         });
 
         jLabel1.setBackground(new java.awt.Color(204, 0, 51));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("APLICACIONES TALLER DOS");
 
-        jButton4.setForeground(new java.awt.Color(255, 0, 51));
-        jButton4.setText("SALIR");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        cerrar.setText("SALIR");
+        cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                cerrarActionPerformed(evt);
             }
         });
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(204, 204, 204));
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Diego Torres\nCesar Marin \nCristian Balaguera\nJuan Rivadeneira\nJuan Sanchez");
+        jTextArea1.setBorder(null);
+        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cerrar)
+                .addGap(24, 24, 24))
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(matrices)
@@ -86,10 +107,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(resistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
             .addGroup(layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4))
+                .addGap(117, 117, 117)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,21 +118,23 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                    .addComponent(cerrar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(matrices, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(juego, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(resistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(132, 132, 132))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
        System.exit(0);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_cerrarActionPerformed
 
     private void matricesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_matricesMouseClicked
        
@@ -129,6 +151,10 @@ public class Menu extends javax.swing.JFrame {
        resistencia.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_resistenciaActionPerformed
+
+    private void juegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_juegoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_juegoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,8 +192,10 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton cerrar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton juego;
     private javax.swing.JButton matrices;
     private javax.swing.JButton resistencia;
